@@ -24,5 +24,19 @@ export const jobService = {
         );
 
         return job;
+    },
+
+    async getJobById(jobId: string, userId: string) {
+        const job = await jobRepository.findById(jobId);
+
+        if (!job) {
+            throw new Error("Job not found");
+        }
+
+        if (job.userId !== userId) {
+            throw new Error("Forbidden");
+        }
+
+        return job;
     }
 };
