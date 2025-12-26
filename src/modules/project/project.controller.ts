@@ -45,7 +45,7 @@ export const projectController = {
 
     async remove(req: AuthenticatedRequest, res: Response) {
         await projectService.deleteProject(req.params.projectId);
-        res.status(204).send();
+        res.status(204).json({ message: "Project deleted successfully" });
     },
 
     async invite(req: AuthenticatedRequest, res: Response) {
