@@ -1,5 +1,5 @@
-import { signToken } from "../lib/jwt";
-import { comparePassword, hashPassword } from "../lib/password";
+import { signToken } from "../../lib/jwt";
+import { comparePassword, hashPassword } from "../../lib/password";
 import { authRepository } from "./auth.repository";
 
 export const authService = {
