@@ -12,61 +12,49 @@ const router = Router();
 
 /**
  * @swagger
- * /api/v1/auth/register:
+ * /auth/register:
  *   post:
- *     tags: [Auth]
  *     summary: Register a new user
+ *     tags: [Auth]
  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
  *           schema:
  *             type: object
- *             required:
- *               - email
- *               - password
+ *             required: [email, password]
  *             properties:
  *               email:
  *                 type: string
- *                 example: test@example.com
  *               password:
  *                 type: string
- *                 example: password123
  *     responses:
  *       201:
  *         description: User registered successfully
- *       400:
- *         description: User already exists
  */
 router.post("/register", authController.register);
 
 /**
  * @swagger
- * /api/v1/auth/login:
+ * /auth/login:
  *   post:
- *     tags: [Auth]
  *     summary: Login user
+ *     tags: [Auth]
  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
  *           schema:
  *             type: object
- *             required:
- *               - email
- *               - password
+ *             required: [email, password]
  *             properties:
  *               email:
  *                 type: string
- *                 example: test@example.com
  *               password:
  *                 type: string
- *                 example: password123
  *     responses:
  *       200:
  *         description: Login successful
- *       401:
- *         description: Invalid credentials
  */
 router.post("/login", authController.login);
 
